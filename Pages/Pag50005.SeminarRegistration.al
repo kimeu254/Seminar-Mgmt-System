@@ -180,6 +180,13 @@ page 50005 "Seminar Registration"
                 SubPageLink = "No." = field("Bill-to Customer No.");
 
             }
+            part("Attached Documents"; "Document Attachment Factbox")
+            {
+                ApplicationArea = All;
+                Caption = 'Attachments';
+                SubPageLink = "Table ID" = CONST(Database::"Seminar Registration Header"),
+                              "No." = FIELD("No.");
+            }
             systempart(RecordLinks; Links)
             {
                 ApplicationArea = RecordLinks;
@@ -227,6 +234,23 @@ page 50005 "Seminar Registration"
                     begin
                         Rec.ShowDocDim();
                         CurrPage.SaveRecord();
+                    end;
+                }
+                action(Attachments)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Attachments';
+                    Image = Attach;
+                    ToolTip = 'Add a file as an attachment. You can attach images as well as documents.';
+
+                    trigger OnAction()
+                    var
+                        DocumentAttachmentDetails: Page "Document Attachment Details";
+                        RecRef: RecordRef;
+                    begin
+                        RecRef.GetTable(Rec);
+                        DocumentAttachmentDetails.OpenForRecRef(RecRef);
+                        DocumentAttachmentDetails.RunModal();
                     end;
                 }
             }
@@ -375,7 +399,16 @@ page 50005 "Seminar Registration"
                 {
                 }
             }
+
             group(Category_Category4)
+            {
+                Caption = 'Seminar Registration';
+
+                actionref(Attachments_Promoted; Attachments)
+                {
+                }
+            }
+            group(Category_Category5)
             {
                 Caption = 'Approve', Comment = 'Generated from the PromotedActionCategories property index 3.';
 
@@ -395,7 +428,7 @@ page 50005 "Seminar Registration"
                 {
                 }
             }
-            group(Category_Category9)
+            group(Category_Category6)
             {
                 Caption = 'Request Approval', Comment = 'Generated from the PromotedActionCategories property index 8.';
 

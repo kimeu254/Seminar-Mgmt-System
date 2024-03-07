@@ -72,6 +72,13 @@ page 50009 "Seminar Registration List"
                 ApplicationArea = All;
                 SubPageLink = "No." = field("Seminar No.");
             }
+            part("Attached Documents"; "Document Attachment Factbox")
+            {
+                ApplicationArea = All;
+                Caption = 'Attachments';
+                SubPageLink = "Table ID" = CONST(Database::"Seminar Registration Header"),
+                              "No." = FIELD("No.");
+            }
             systempart(RecordLinks; Links)
             {
                 ApplicationArea = RecordLinks;
