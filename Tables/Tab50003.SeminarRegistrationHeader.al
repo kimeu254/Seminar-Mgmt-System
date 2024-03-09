@@ -362,7 +362,8 @@ table 50003 "Seminar Registration Header"
         {
             Caption = 'Total Price';
             Editable = false;
-            CalcFormula = sum("Seminar Registration Line".Amount where("Document No." = field("No.")));
+            CalcFormula = sum("Seminar Registration Line".Amount where("Document No." = field("No."),
+                                                                            "To Invoice" = const(true)));
             FieldClass = FlowField;
         }
     }
