@@ -373,11 +373,11 @@ codeunit 50001 "Seminar Post"
             TempBlob.CreateInStream(InStr);
             //txtB64 := cnv64.ToBase64(InStr, true);
             Body := 'Hello ' + SemRegLine."Participant Name" + ',';
-            Body += '<p><br><br>PFA your certificate of participation.</p>';
-            Body += '</p><br><br>Kind Regards,</p>';
-            Body += '<p><br>' + CompanyInfo.Name + '.</p>';
+            Body += '<br><br><p>PFA your certificate of participation.</p>';
+            Body += '<br><br></p>Kind Regards,</p>';
+            Body += '<br><p>' + CompanyInfo.Name + '.</p>';
             EmailMessage.Create(
-                'jimmymutiso@dynasoft.co.ke',
+                'jimkimeu254@gmail.com',
                 'CERTIFICATE OF PARTICIPATION',
                 Body,
                 false
