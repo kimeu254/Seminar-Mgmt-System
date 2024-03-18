@@ -88,6 +88,11 @@ page 50005 "Seminar Registration"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Maximum Participants field.';
                 }
+                field("Registered Participants"; Rec."Registered Participants")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Registered Participants field.';
+                }
                 field("Approval Status"; Rec."Approval Status")
                 {
                     ApplicationArea = All;
